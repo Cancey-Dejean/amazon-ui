@@ -3,9 +3,15 @@ import { Dialog, Transition } from "@headlessui/react"
 import { HeartIcon, XMarkIcon } from "@heroicons/react/24/outline"
 import { PencilIcon, PlusIcon } from "@heroicons/react/20/solid"
 
-export default function Example() {
-  const [openMenuCanvas, setOpenMenuCanvas] = useState(true)
+type MainMenuCanvasProps = {
+  openMenuCanvas: boolean
+  setOpenMenuCanvas: React.Dispatch<React.SetStateAction<boolean>>
+}
 
+export default function MainMenuCanvas({
+  openMenuCanvas,
+  setOpenMenuCanvas,
+}: MainMenuCanvasProps) {
   return (
     <Transition.Root show={openMenuCanvas} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setOpenMenuCanvas}>
@@ -18,22 +24,22 @@ export default function Example() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          <div className="fixed inset-0 bg-black/80  transition-opacity" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
-            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+            <div className="pointer-events-none fixed inset-y-0 left-0 flex max-w-full pr-10">
               <Transition.Child
                 as={Fragment}
                 enter="transform transition ease-in-out duration-500 sm:duration-700"
-                enterFrom="translate-x-full"
+                enterFrom="-translate-x-full"
                 enterTo="translate-x-0"
                 leave="transform transition ease-in-out duration-500 sm:duration-700"
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-full"
               >
-                <Dialog.Panel className="pointer-events-auto relative w-96">
+                <Dialog.Panel className="pointer-events-auto relative max-w-[365px]">
                   <Transition.Child
                     as={Fragment}
                     enter="ease-in-out duration-500"
@@ -43,7 +49,7 @@ export default function Example() {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <div className="absolute left-0 top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
+                    <div className="absolute right-0 top-0 mr-8 flex pr-2 pt-4 sm:-mr-10 sm:pr-2">
                       <button
                         type="button"
                         className="relative rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
@@ -77,11 +83,11 @@ export default function Example() {
                           </div>
                           <button
                             type="button"
-                            className="relative ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-white text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            className="relative ml-4 flex h-5 w-5 items-center justify-center rounded-full bg-white text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                           >
                             <span className="absolute -inset-1.5" />
-                            <HeartIcon className="h-6 w-6" aria-hidden="true" />
-                            <span className="sr-only">Favorite</span>
+                            <HeartIcon className="h-5 w-5" aria-hidden="true" />
+                            <span className="sr-only">Menu</span>
                           </button>
                         </div>
                       </div>

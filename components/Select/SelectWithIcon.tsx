@@ -27,7 +27,7 @@ export default function SelectWithIcon() {
       {({ open }) => (
         <>
           <div className="relative h-full">
-            <Listbox.Button className="relative bg-[#e6e6e6] w-full h-full cursor-default py-1.5 pl-3 pr-10 text-left text-gray-900  ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <Listbox.Button className="relative rounded-tl-md rounded-bl-md bg-[#e6e6e6] w-full h-full cursor-default py-1.5 pl-3 pr-8 ring-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 text-[12px] text-[#555]">
               <span className="block truncate">{selected.name}</span>
               <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                 <ChevronUpDownIcon
